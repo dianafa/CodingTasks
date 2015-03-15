@@ -12,8 +12,7 @@ namespace CodingTasks
         {
             Console.WriteLine("Hello, World!");
             PascalsTriangle PT = new PascalsTriangle();
-            var result = PT.Generate(5);
-            Console.WriteLine("wynik:" + result);
+            PT.Generate(9);
             Console.ReadLine();
         }
     }
