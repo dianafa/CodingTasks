@@ -13,6 +13,8 @@ namespace CodingTasks
             Console.WriteLine("Hello, World!");
             PascalsTriangle PT = new PascalsTriangle();
             PT.Generate(9);
+            RomanToInteger RTI = new RomanToInteger();
+            RTI.RomanToInt("XVII");
             Console.ReadLine();
         }
     }
