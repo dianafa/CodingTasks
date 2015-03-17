@@ -15,6 +15,9 @@ namespace CodingTasks
             PT.Generate(9);
             RomanToInteger RTI = new RomanToInteger();
             RTI.RomanToInt("XVII");
+            ValidParentheses VP = new ValidParentheses();
+            VP.IsValid("{[][({})]}");
+            VP.IsValid("[{(})]");
             Console.ReadLine();
         }
     }
