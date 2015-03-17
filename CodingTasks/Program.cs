@@ -18,6 +18,8 @@ namespace CodingTasks
             ValidParentheses VP = new ValidParentheses();
             VP.IsValid("{[][({})]}");
             VP.IsValid("[{(})]");
+            NumberOf1Bits NO1B = new NumberOf1Bits();
+            NO1B.HammingWeight(11);
             Console.ReadLine();
         }
     }
