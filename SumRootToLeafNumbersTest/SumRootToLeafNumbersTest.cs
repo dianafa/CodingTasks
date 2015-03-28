@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using CodingTasks;
+using System.Collections.Generic;
 
 namespace CodingTasksTests
 {
@@ -10,11 +11,14 @@ namespace CodingTasksTests
         [TestMethod]
         public void ComputeSumTest()
         {
-            int[] tab = { 5, 6, 3 };
+            List<int> numbers = new List<int>();
+            numbers.Add(5);
+            numbers.Add(6);
+            numbers.Add(3);
             int expected = 563;
             SumRootToLeafNumbers SRTLN = new SumRootToLeafNumbers();
 
-            int actual = SRTLN.ComputeSum(tab);
+            int actual = SRTLN.ComputeSum(numbers);
 
             Assert.AreEqual(expected, actual);
         }

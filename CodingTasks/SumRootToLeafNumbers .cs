@@ -23,40 +23,43 @@ namespace CodingTasks
     {
         public int SumNumbers(TreeNode root)
         {
-            int[] tab = new int[100];
-            tab[0] = root.val;
-            int i = 0;
-            GO(null, root, tab, 1);
-            return 0;
+            if (root == null) return 0;
+
+            List<int> numbers = new List<int>();
+            int ss = 0;
+            GO(root, numbers, ref ss);
+            Console.WriteLine("The sum of paths is: " + ss);
+            return ss;
         }
 
-        void GO(TreeNode prev, TreeNode current, int[] tab, int i)
+        void GO(TreeNode current, List<int> numbers, ref int ss)
         {
-            if (current.left != null)
+            numbers.Add(current.val);
+            if (current.left == null && current.right == null)
             {
-                tab[i] = current.val;
-                GO(current, current.left, tab, i++);
+                ss += ComputeSum(numbers);
             }
-            else if (current.right != null)
+            else
             {
-                tab[i] = current.val;
-                GO(current, current.right, tab, i++);
+                if (current.left != null)
+                {
+                    GO(current.left, numbers, ref ss);
+                }
+                if (current.right != null)
+                {
+                    GO(current.right, numbers, ref ss);
+                }
             }
-            else //both left and right is equal to null
-            {
-                tab[i] = current.val;
-                ComputeSum(tab);
-                i--;
-            }
+            numbers.RemoveAt(numbers.Count -1);
         }
 
-        public int ComputeSum(int[] tab)
+        public int ComputeSum(List<int> numbers)
         {
             int result = 0;
             int dec = 1;
-            for (int i = tab.Length -1; i >= 0; --i)
+            for (int i = numbers.Count - 1; i >= 0; --i)
             {
-                result += dec * tab[i];
+                result += dec * numbers[i];
                 dec *= 10;
             }
             return result;
